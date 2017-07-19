@@ -4,7 +4,7 @@ namespace LostTeam\task;
 use LostTeam\BBall;
 use pocketmine\scheduler\PluginTask;
 
-class RoundCheckTask extends PluginTask{
+class GameCheckTask extends PluginTask{
 
     /** @var Court $court */
 	public $court;
