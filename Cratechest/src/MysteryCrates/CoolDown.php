@@ -3,7 +3,7 @@ namespace MysteryCrates;
 
 use pocketmine\scheduler\PluginTask;
 
-class Cooldown extends PluginTask {
+class CoolDown extends PluginTask {
 
     private $player;
 
