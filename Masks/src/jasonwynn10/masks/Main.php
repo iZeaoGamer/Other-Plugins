@@ -54,7 +54,7 @@ class Main extends PluginBase implements Listener {
 							foreach($class->getConstants() as $name => $value) {
 								if(strpos(strtolower($setting), str_replace("_", " ", strtolower($name))) !== false) {
 									if($amplifier > 0) {
-										$entity->addEffect(EffectInstance::getEffect($value)->setDuration(INT32_MAX)->setAmplifier($amplifier));
+										$entity->addEffect(new Effect::getEffect($value)->setDuration(new EffectInstance)->setAmplifier($amplifier));
 									}else {
 										$entity->removeEffect($value);
 									}
