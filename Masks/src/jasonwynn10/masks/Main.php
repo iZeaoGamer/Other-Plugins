@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 namespace jasonwynn10\masks;
 
 use jojoe77777\FormAPI\FormAPI;
@@ -19,15 +21,14 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\Server;
 
 class Main extends PluginBase implements Listener {
+	
 	/** @var Main $insance */
 	private static $insance;
-
 	public function onEnable() {
 		$this->saveDefaultConfig();
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		self::$insance = $this;
 	}
-
 	/**
 	 * @param EntityArmorChangeEvent $event
 	 * @throws \ReflectionException
@@ -54,7 +55,7 @@ class Main extends PluginBase implements Listener {
 							foreach($class->getConstants() as $name => $value) {
 								if(strpos(strtolower($setting), str_replace("_", " ", strtolower($name))) !== false) {
 									if($amplifier > 0) {
-										$entity->addEffect(new Effect::getEffect($value)->setDuration(new EffectInstance)->setAmplifier($amplifier));
+										$entity->addEffect(new EffectInstance(Effect::getEffect($value), (INT32_MAX), ($amplifier)));
 									}else {
 										$entity->removeEffect($value);
 									}
@@ -162,7 +163,6 @@ class Main extends PluginBase implements Listener {
 			}
 		}
 	}
-
 	/**
 	 * @param EntityDamageEvent $event
 	 */
@@ -214,7 +214,6 @@ class Main extends PluginBase implements Listener {
 			}
 		}
 	}
-
 	public function onTap(PlayerInteractEvent $event) {
 		if($event->getItem()->getId() === Item::BOOK) {
 			$player = $event->getPlayer();
@@ -236,7 +235,6 @@ class Main extends PluginBase implements Listener {
 			$inventory->sendContents($inventory->getHolder());
 		}
 	}
-
 	/**
 	 * @param CommandSender $sender
 	 * @param Command $command
@@ -298,7 +296,6 @@ class Main extends PluginBase implements Listener {
 				$config->save();
 			});
 			$form->setTitle("Mask Settings");
-
 			foreach($config->getAll() as $mask => $settings) {
 				$form->addLabel($mask . " Settings");
 				foreach($settings as $setting => $value) {
@@ -313,7 +310,6 @@ class Main extends PluginBase implements Listener {
 		}
 		return true;
 	}
-
 	public static function liveUpdateEffects() {
 		foreach(Server::getInstance()->getOnlinePlayers() as $player) {
 			$player->removeAllEffects();
