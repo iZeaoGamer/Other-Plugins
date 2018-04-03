@@ -6,6 +6,7 @@ use jojoe77777\FormAPI\FormAPI;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\entity\Effect;
+use pocketmine\entity\EffectInstance;
 use pocketmine\entity\Living;
 use pocketmine\event\entity\EntityArmorChangeEvent;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
@@ -53,7 +54,7 @@ class Main extends PluginBase implements Listener {
 							foreach($class->getConstants() as $name => $value) {
 								if(strpos(strtolower($setting), str_replace("_", " ", strtolower($name))) !== false) {
 									if($amplifier > 0) {
-										$entity->addEffect(Effect::getEffect($value)->setDuration(INT32_MAX)->setAmplifier($amplifier));
+										$entity->addEffect(EffectInstance::getEffect($value)->setDuration(INT32_MAX)->setAmplifier($amplifier));
 									}else {
 										$entity->removeEffect($value);
 									}
