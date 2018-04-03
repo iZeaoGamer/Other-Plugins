@@ -78,7 +78,7 @@ class Main extends PluginBase implements Listener {
 							foreach($class->getConstants() as $name => $value) {
 								if(strpos(strtolower($setting), str_replace("_", " ", strtolower($name))) !== false) {
 									if($amplifier > 0) {
-										$entity->addEffect(Effect::getEffect($value)->setDuration(INT32_MAX)->setAmplifier($amplifier));
+										$entity->addEffect(new EffectInstance(Effect::getEffect($value), (INT32_MAX), ($amplifier)));
 									}else {
 										$entity->removeEffect($value);
 									}
@@ -101,7 +101,7 @@ class Main extends PluginBase implements Listener {
 							foreach($class->getConstants() as $name => $value) {
 								if(strpos(strtolower($setting), str_replace("_", " ", strtolower($name))) !== false) {
 									if($amplifier > 0) {
-										$entity->addEffect(Effect::getEffect($value)->setDuration(INT32_MAX)->setAmplifier($amplifier));
+										$entity->addEffect(new EffectInstance(Effect::getEffect($value), (INT32_MAX), ($amplifier)));
 									}else {
 										$entity->removeEffect($value);
 									}
@@ -124,7 +124,7 @@ class Main extends PluginBase implements Listener {
 							foreach($class->getConstants() as $name => $value) {
 								if(strpos(strtolower($setting), str_replace("_", " ", strtolower($name))) !== false) {
 									if($amplifier > 0) {
-										$entity->addEffect(Effect::getEffect($value)->setDuration(INT32_MAX)->setAmplifier($amplifier));
+										$entity->addEffect(new EffectInstance(Effect::getEffect($value), (INT32_MAX), ($amplifier)));
 									}else {
 										$entity->removeEffect($value);
 									}
@@ -147,7 +147,7 @@ class Main extends PluginBase implements Listener {
 							foreach($class->getConstants() as $name => $value) {
 								if(strpos(strtolower($setting), str_replace("_", " ", strtolower($name))) !== false) {
 									if($amplifier > 0) {
-										$entity->addEffect(Effect::getEffect($value)->setDuration(INT32_MAX)->setAmplifier($amplifier));
+										$entity->addEffect(new EffectInstance(Effect::getEffect($value), (INT32_MAX), ($amplifier)));
 									}else {
 										$entity->removeEffect($value);
 									}
@@ -177,38 +177,38 @@ class Main extends PluginBase implements Listener {
 						case 0: //SKELETON
 							$settings = $this->getConfig()->getNested("Skeleton Mask", []);
 							if($settings["Poison Attacks"] > 0) {
-								$damaged->addEffect(Effect::getEffect(Effect::POISON)->setDuration(INT32_MAX)->setAmplifier($settings["Poison Attacks"]));
+								$damaged->addEffect(new EffectInstance(Effect::getEffect(Effect::POISON), (INT32_MAX), ($settings["Poison Attacks"]));
 							}
 							break;
 						case 2: //ZOMBIE
 							$settings = $this->getConfig()->getNested("Zombie Mask", []);
 							if($settings["Poison Attacks"] > 0) {
-								$damaged->addEffect(Effect::getEffect(Effect::POISON)->setDuration(INT32_MAX)->setAmplifier($settings["Poison Attacks"]));
+								$damaged->addEffect(new EffectInstance(Effect::getEffect(Effect::POISON), (INT32_MAX), ($settings["Poison Attacks"]));
 							}
 							break;
 						case 4: //CREEPER
 							$settings = $this->getConfig()->getNested("Creeper Mask", []);
 							if($settings["Poison Attacks"] > 0) {
-								$damaged->addEffect(Effect::getEffect(Effect::POISON)->setDuration(INT32_MAX)->setAmplifier($settings["Poison Attacks"]));
+								$damaged->addEffect(new EffectInstance(Effect::getEffect(Effect::POISON), (INT32_MAX), ($settings["Poison Attacks"]));
 							}
 							break;
 						case 5: //DRAGON
 							$settings = $this->getConfig()->getNested("Dragon Mask", []);
 							if($settings["Poison Attacks"] > 0) {
-								$damaged->addEffect(Effect::getEffect(Effect::POISON)->setDuration(INT32_MAX)->setAmplifier($settings["Poison Attacks"]));
+								$damaged->addEffect(new EffectInstance(Effect::getEffect(Effect::POISON), (INT32_MAX), ($settings["Poison Attacks"]));
 							}
 							break;
 						default:
 							$settings = $this->getConfig()->getNested("No Mask", []);
 							if($settings["Poison Attacks"] > 0) {
-								$damaged->addEffect(Effect::getEffect(Effect::POISON)->setDuration(INT32_MAX)->setAmplifier($settings["Poison Attacks"]));
+								$damaged->addEffect(new EffectInstance(Effect::getEffect(Effect::POISON), (INT32_MAX), ($settings["Poison Attacks"]));
 							}
 							break;
 					}
 				}elseif($mask->getId() === Item::AIR) {
 					$settings = $this->getConfig()->getNested("No Mask", []);
 					if($settings["Poison Attacks"] > 0) {
-						$damaged->addEffect(Effect::getEffect(Effect::POISON)->setDuration(INT32_MAX)->setAmplifier($settings["Poison Attacks"]));
+						$damaged->addEffect(new EffectInstance(Effect::getEffect(Effect::POISON), (INT32_MAX), ($settings["Poison Attacks"]));
 					}
 				}
 			}
@@ -332,7 +332,7 @@ class Main extends PluginBase implements Listener {
 							foreach($class->getConstants() as $name => $value) {
 								if(strpos(strtolower($setting), str_replace("_", " ", strtolower($name))) !== false) {
 									if($amplifier > 0) {
-										$player->addEffect(Effect::getEffect($value)->setDuration(INT32_MAX)->setAmplifier($amplifier));
+										$player->addEffect(new EffectInstance(Effect::getEffect($value), (INT32_MAX). ($amplifier));
 									}else {
 										$player->removeEffect($value);
 									}
@@ -355,7 +355,7 @@ class Main extends PluginBase implements Listener {
 							foreach($class->getConstants() as $name => $value) {
 								if(strpos(strtolower($setting), str_replace("_", " ", strtolower($name))) !== false) {
 									if($amplifier > 0) {
-										$player->addEffect(Effect::getEffect($value)->setDuration(INT32_MAX)->setAmplifier($amplifier));
+										$player->addEffect(new EffectInstance(Effect::getEffect($value), (INT32_MAX), ($amplifier));
 									}else {
 										$player->removeEffect($value);
 									}
@@ -378,7 +378,7 @@ class Main extends PluginBase implements Listener {
 							foreach($class->getConstants() as $name => $value) {
 								if(strpos(strtolower($setting), str_replace("_", " ", strtolower($name))) !== false) {
 									if($amplifier > 0) {
-										$player->addEffect(Effect::getEffect($value)->setDuration(INT32_MAX)->setAmplifier($amplifier));
+										$player->addEffect(new EffectInstance(Effect::getEffect($value), (INT32_MAX), ($amplifier));
 									}else {
 										$player->removeEffect($value);
 									}
@@ -401,7 +401,7 @@ class Main extends PluginBase implements Listener {
 							foreach($class->getConstants() as $name => $value) {
 								if(strpos(strtolower($setting), str_replace("_", " ", strtolower($name))) !== false) {
 									if($amplifier > 0) {
-										$player->addEffect(Effect::getEffect($value)->setDuration(INT32_MAX)->setAmplifier($amplifier));
+										$player->addEffect(new EffectInstance(Effect::getEffect($value), (INT32_MAX), ($amplifier));
 									}else {
 										$player->removeEffect($value);
 									}
@@ -424,7 +424,7 @@ class Main extends PluginBase implements Listener {
 							foreach($class->getConstants() as $name => $value) {
 								if(strpos(strtolower($setting), str_replace("_", " ", strtolower($name))) !== false) {
 									if($amplifier > 0) {
-										$player->addEffect(Effect::getEffect($value)->setDuration(INT32_MAX)->setAmplifier($amplifier));
+										$player->addEffect(new EffectInstance(Effect::getEffect($value), (INT32_MAX), ($amplifier));
 									}else {
 										$player->removeEffect($value);
 									}
