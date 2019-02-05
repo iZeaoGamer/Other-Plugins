@@ -95,7 +95,7 @@ class Main extends PluginBase {
                 for($i = 1;$i < count($args); $i++) {
                     $prefix .= $args[$i];
                 }
-                $this->pureChat->setPrefix($prefix, $player);
+                $this->pureChat->setPrefix($prefix, $args[0]);
             }
         }
         if(strtolower($command) == "givesuffix") {
@@ -108,7 +108,7 @@ class Main extends PluginBase {
                 for($i = 1;$i < count($args); $i++) {
                     $suffix .= $args[$i];
                 }
-                $this->pureChat->setSuffix($suffix, $player);
+                $this->pureChat->setSuffix($suffix, $args[0]);
             }
         }
         return true;
