@@ -1,13 +1,13 @@
 <?php
 namespace ifteam\Farms;
 
-use pocketmine\scheduler\PluginTask;
+use pocketmine\scheduler\Task;
 
-class FarmsTask extends PluginTask {
-	public function __construct(Farms $owner) {
-		parent::__construct ( $owner );
+class FarmsTask extends Task {
+	public function __construct(Farms $plugin) {
+		$this->plugin = $plugin;
 	}
-	public function onRun($currentTick) {
-		$this->getOwner()->tick();
+	public function onRun(int $currentTick) {
+		$this->plugin->tick();
 	}
 }
