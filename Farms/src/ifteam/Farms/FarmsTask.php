@@ -4,6 +4,7 @@ namespace ifteam\Farms;
 use pocketmine\scheduler\Task;
 
 class FarmsTask extends Task {
+	public $plugin;
 	public function __construct(Farms $plugin) {
 		$this->plugin = $plugin;
 	}
